@@ -54,6 +54,7 @@ router.post("/register", async (req, res) => {
 
 // Login
 router.post("/signin", async (req, res) => {
+  console.log('in signin')
   const { phone, password } = req.body;
   if (!phone || !password) {
     return res.status(422).json({ error: "Fill out credentials" });
