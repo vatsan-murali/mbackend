@@ -18,6 +18,7 @@ const { errorMonitor } = require("events");
 // GET PAGE
 
 router.get("/", (req,res) => {
+  console.log('in get')
 return res.json({mssg: "GET PAGE"})
 })
 
