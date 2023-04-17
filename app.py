@@ -8,7 +8,7 @@ import cv2
 
 
 app = Flask(__name__)
-CORS(app, origins="http://localhost:3000")
+CORS(app, origins="https://mfrontend-nu.vercel.app/")
 
 
 model = tf.keras.models.load_model('../../CNN/models/malaria_cnn_model.h5')
