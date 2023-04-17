@@ -13,7 +13,7 @@ app.use(cookieParser())
 app.use(express.json())
 app.use(bodyParser.json());
 app.use(cors({
-    origin:["http://localhost:3001","http://localhost:5000"]
+    origin:["https://mfrontend-nu.vercel.app/","http://localhost:5000"]
     }))
 
 dotenv.config({path:'./config.env'})
