@@ -15,6 +15,13 @@ const { TokenInstance } = require("twilio/lib/rest/oauth/v1/token");
 const { errorMonitor } = require("events");
 
 
+// GET PAGE
+
+router.get("/", (req,res) => {
+return res.json({mssg: "GET PAGE"})
+})
+
+
 // Sign Up
 router.post("/register", async (req, res) => {
   const { username, phone, password, cpassword } = req.body;
