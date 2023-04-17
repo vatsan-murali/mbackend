@@ -12,7 +12,9 @@ const bodyParser = require('body-parser');
 app.use(cookieParser())
 app.use(express.json())
 app.use(bodyParser.json());
-app.use(cors())
+app.use(cors({
+    origin:["https://mfrontend-nu.vercel.app","http://44.211.176.112"]
+    }))
 
 dotenv.config({path:'./config.env'})
 require('./db/conn')
