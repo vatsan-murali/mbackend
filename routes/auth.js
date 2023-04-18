@@ -221,7 +221,8 @@ router.post("/send-email", (req, res) => {
 
 router.post("/send-image", (req, res) => {
   const { prediction, imagePreviewUrl, choice } = req.body;
-  const token = req.cookies.jwtoken;
+//   const token = req.cookies.jwtoken;
+  const token = req.headers.authorization.split(" ")[1];
   const decoded = jwt.verify(token, process.env.SECRET_KEY);
   const username = decoded.username;
 
@@ -246,7 +247,8 @@ router.post("/send-image", (req, res) => {
 
 router.get("/get-images", async (req, res) => {
   try {
-    const token = req.cookies.jwtoken;
+//     const token = req.cookies.jwtoken;
+    const token = req.headers.authorization.split(" ")[1];
     const decoded = jwt.verify(token, process.env.SECRET_KEY);
     const username = decoded.username;
 
