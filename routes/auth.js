@@ -62,7 +62,7 @@ router.post("/register", async (req, res) => {
 
 // Login
 router.post("/signin", async (req, res) => {
-  console.log('in signin')
+  console.log('IN LOGIN BACKEND')
   const { phone, password } = req.body;
   if (!phone || !password) {
     return res.status(422).json({ error: "Fill out credentials" });
@@ -72,12 +72,12 @@ router.post("/signin", async (req, res) => {
     const userCheck = await User.findOne({
       phone: phone,
     });
-
+    console.log('userCheck',userCheck)
     if (userCheck) {
       console.log(password, userCheck.password);
       const isMatch = bcrypt.compare(password, userCheck.password);
       const token = await userCheck.generateAuthToken();
-      console.log(token);
+      console.log('token',token);
       res.cookie("jwtoken", token, {
         expires: new Date(Date.now() + 25892000000),
         httpOnly: true,
