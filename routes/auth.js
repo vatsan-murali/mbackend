@@ -76,14 +76,14 @@ router.post("/signin", async (req, res) => {
     if (userCheck) {
       console.log(password, userCheck.password);
       const isMatch = await bcrypt.compare(password, userCheck.password);
-      const token = await userCheck.generateAuthToken();
-      console.log('token',token);
-      res.cookie("jwtoken", token, {
+      const tok = await userCheck.generateAuthToken();
+      console.log('token',tok);
+      res.cookie("jwtoken", tok, {
         expires: new Date(Date.now() + 25892000000),
         httpOnly: true,
       });
       if (isMatch) {
-        return res.status(201).json({ message: "User present!", token });
+        return res.status(201).json({ message: "User present!", token:tok });
       } else {
         return res.status(422).json({ error: "User does not exist!" });
       }
