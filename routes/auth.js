@@ -106,8 +106,8 @@ router.get("/site", authenticate,(req, res) => {
 
 router.get("/logout", (req, res) => {
   console.log("Welcome to logout page");
-  res.clearCookie("jwtoken", { path: "/" });
-  res.status(200).send("User Logout");
+//   res.clearCookie("jwtoken", { path: "/" });
+  res.status(200).json({mssg:"User Logout"});
 });
 
 // OTP
