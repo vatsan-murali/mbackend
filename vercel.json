@@ -1,12 +1,12 @@
 {
-"version": 2,
+"version": 1,
 "name": "malaria",
 "builds": [
   {
     "src": "index.js",
     "use": "@vercel/node"
-  },
-  ]
+  }
+  ],
   "routes": [
     {
     "src":"/(.*)",
