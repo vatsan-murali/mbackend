@@ -98,8 +98,8 @@ router.post("/signin", async (req, res) => {
 // Main
 
 router.get("/site", authenticate,(req, res) => {
-  console.log("Welcome to main site");
-  res.send(req.rootUser);
+  console.log("Welcome to main site BACKEND");
+//   res.send(req.rootUser);
 });
 
 // Logout
