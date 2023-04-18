@@ -75,7 +75,7 @@ router.post("/signin", async (req, res) => {
     console.log('userCheck',userCheck)
     if (userCheck) {
       console.log(password, userCheck.password);
-      const isMatch = bcrypt.compare(password, userCheck.password);
+      const isMatch = await bcrypt.compare(password, userCheck.password);
       const token = await userCheck.generateAuthToken();
       console.log('token',token);
       res.cookie("jwtoken", token, {
