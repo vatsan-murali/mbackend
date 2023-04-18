@@ -4,6 +4,7 @@ const User = require("../models/userSchema");
 const Authenticate = async (req,res, next) => {
     try {
         //const token = req.cookies.jwtoken;
+        console.log('IN AUTHENTICATE BACKEND')
         const token = req.headers.authorization.split(" ")[1];
         console.log('authenticate:',token)
         const verifyToken = jwt.verify(token, process.env.SECRET_KEY);
