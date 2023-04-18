@@ -83,7 +83,7 @@ router.post("/signin", async (req, res) => {
         httpOnly: true,
       });
       if (isMatch) {
-        return res.status(201).json({ message: "User present!" });
+        return res.status(201).json({ message: "User present!", token });
       } else {
         return res.status(422).json({ error: "User does not exist!" });
       }
@@ -97,7 +97,7 @@ router.post("/signin", async (req, res) => {
 
 // Main
 
-router.get("/site", authenticate, (req, res) => {
+router.get("/site", Authenticate,(req, res) => {
   console.log("Welcome to main site");
   res.send(req.rootUser);
 });
