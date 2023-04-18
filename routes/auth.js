@@ -97,7 +97,7 @@ router.post("/signin", async (req, res) => {
 
 // Main
 
-router.get("/site", Authenticate,(req, res) => {
+router.get("/site", authenticate,(req, res) => {
   console.log("Welcome to main site");
   res.send(req.rootUser);
 });
