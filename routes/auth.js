@@ -136,6 +136,9 @@ router.post("/sendOTP", async (req, res) => {
       );
 
       if (updatedUser) {
+        res.set("Access-Control-Allow-Origin", "https://malaria-frontend.onrender.com");
+        res.set("Access-Control-Allow-Methods", "POST");
+        res.set("Access-Control-Allow-Headers", "Content-Type");
         return res.status(200).json({ message: "OTP sent successfully" });
       } else {
         return res.status(500).json({ error: "Server error" });
